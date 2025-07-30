@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Icon Generator</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="128" height="128"></canvas>
+    <script>
+      function createIcon(size, filename) {
+        const canvas = document.createElement("canvas");
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext("2d");
+
+        // Create gradient background
+        const gradient = ctx.createLinearGradient(0, 0, size, size);
+        gradient.addColorStop(0, "#667eea");
+        gradient.addColorStop(1, "#764ba2");
+
+        // Fill background
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, size, size);
+
+        // Add robot emoji
+        ctx.font = `${size * 0.6}px Arial`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = "white";
+        ctx.fillText("🤖", size / 2, size / 2);
+
+        // Convert to blob and download
+        canvas.toBlob(function (blob) {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        });
+      }
+
+      // Generate all required icons
+      setTimeout(() => {
+        createIcon(16, "icon16.png");
+        setTimeout(() => createIcon(32, "icon32.png"), 100);
+        setTimeout(() => createIcon(48, "icon48.png"), 200);
+        setTimeout(() => createIcon(128, "icon128.png"), 300);
+      }, 1000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        width: 350px;
+        min-height: 400px;
+        margin: 0;
+        padding: 15px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .header h2 {
+        margin: 0;
+        font-size: 20px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .chat-container {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        max-height: 250px;
+        overflow-y: auto;
+        color: #333;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .message {
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        border-radius: 15px;
+        max-width: 80%;
+        word-wrap: break-word;
+      }
+
+      .user-message {
+        background: #007bff;
+        color: white;
+        margin-left: auto;
+        text-align: right;
+      }
+
+      .bot-message {
+        background: #f1f1f1;
+        color: #333;
+        margin-right: auto;
+      }
+
+      .input-container {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+
+      #userInput {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 20px;
+        font-size: 14px;
+        outline: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #sendBtn {
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background 0.3s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      #sendBtn:hover {
+        background: #218838;
+      }
+
+      #sendBtn:disabled {
+        background: #6c757d;
+        cursor: not-allowed;
+      }
+
+      .status {
+        font-size: 12px;
+        text-align: center;
+        opacity: 0.8;
+      }
+
+      .loading {
+        display: none;
+        text-align: center;
+        color: #ffc107;
+      }
+
+      .error {
+        color: #dc3545;
+        font-size: 12px;
+        text-align: center;
+        margin-top: 5px;
+      }
+
+      .toggle-widget {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 14px;
+        transition: all 0.3s;
+      }
+
+      .toggle-widget:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h2>🤖 WebPage AI Chat</h2>
+      <div class="status" id="pageStatus">Ready to chat about this page!</div>
+    </div>
+
+    <div class="chat-container" id="chatContainer">
+      <div class="message bot-message">
+        👋 Hi! I can answer questions about the content of this webpage. What
+        would you like to know?
+      </div>
+    </div>
+
+    <div class="input-container">
+      <input
+        type="text"
+        id="userInput"
+        placeholder="Ask about this webpage..."
+        maxlength="500"
+      />
+      <button id="sendBtn">▶</button>
+    </div>
+
+    <div class="loading" id="loading">🤔 Thinking...</div>
+    <div class="error" id="error"></div>
+
+    <button class="toggle-widget" id="toggleWidget">
+      Open Chat Widget on Page
+    </button>
+
+    <script src="config.js"></script>
+    <script src="llm-service.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

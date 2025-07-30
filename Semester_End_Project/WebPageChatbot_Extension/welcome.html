@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to WebPage AI Chatbot</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .welcome-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .logo {
+        font-size: 4rem;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 10px;
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        color: #666;
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 40px 0;
+      }
+
+      .feature {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: left;
+      }
+
+      .feature-icon {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .feature h3 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .feature p {
+        color: #666;
+        line-height: 1.5;
+      }
+
+      .steps {
+        background: #e8f4fd;
+        padding: 30px;
+        border-radius: 15px;
+        margin: 30px 0;
+        text-align: left;
+      }
+
+      .steps h2 {
+        color: #1976d2;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .step {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .step-number {
+        background: #1976d2;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-weight: bold;
+      }
+
+      .cta-button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        margin: 20px 10px;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+      }
+
+      .secondary-button {
+        background: transparent;
+        color: #667eea;
+        border: 2px solid #667eea;
+      }
+
+      .tech-stack {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid #eee;
+      }
+
+      .tech-stack h3 {
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .tech-tag {
+        background: #f0f0f0;
+        padding: 5px 12px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="welcome-card">
+        <div class="logo">🤖</div>
+        <h1>WebPage AI Chatbot</h1>
+        <p class="subtitle">
+          Your intelligent companion for understanding any webpage
+        </p>
+
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">🧠</div>
+            <h3>Smart Analysis</h3>
+            <p>
+              Advanced NLP techniques analyze webpage content to provide
+              intelligent, context-aware responses.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">💬</div>
+            <h3>Natural Chat</h3>
+            <p>
+              Ask questions in natural language and get helpful answers about
+              the current webpage.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3>Real-time</h3>
+            <p>
+              Instant responses with content extraction, sentiment analysis, and
+              topic identification.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🎯</div>
+            <h3>Context-Aware</h3>
+            <p>
+              Understands page structure, headings, links, and provides
+              relevant, targeted information.
+            </p>
+          </div>
+        </div>
+
+        <div class="steps">
+          <h2>How to Use</h2>
+          <div class="step">
+            <div class="step-number">1</div>
+            <div>Navigate to any webpage you want to chat about</div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div>
+              Click the extension icon in your toolbar or the floating chat
+              indicator
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div>Start asking questions about the page content</div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div>Get intelligent, context-aware responses instantly</div>
+          </div>
+        </div>
+
+        <a href="#" onclick="window.close()" class="cta-button">Get Started</a>
+        <a href="https://github.com" class="cta-button secondary-button"
+          >View Documentation</a
+        >
+
+        <div class="tech-stack">
+          <h3>Built with Modern NLP & Web Technologies</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">JavaScript ES6+</span>
+            <span class="tech-tag">Chrome Extensions API</span>
+            <span class="tech-tag">Natural Language Processing</span>
+            <span class="tech-tag">Sentiment Analysis</span>
+            <span class="tech-tag">Text Summarization</span>
+            <span class="tech-tag">Entity Recognition</span>
+            <span class="tech-tag">Content Extraction</span>
+            <span class="tech-tag">Real-time Analysis</span>
+          </div>
+        </div>
+
+        <p style="margin-top: 30px; color: #999; font-size: 0.9rem">
+          Developed as part of Natural Language Processing (SE-3213) course<br />
+          University of Azad Jammu & Kashmir
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Add some interactive effects
+      document.addEventListener("DOMContentLoaded", function () {
+        // Animate feature cards on scroll
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        }, observerOptions);
+
+        // Initially hide and position elements
+        document.querySelectorAll(".feature").forEach((el, index) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = `opacity 0.6s ease ${
+            index * 0.1
+          }s, transform 0.6s ease ${index * 0.1}s`;
+          observer.observe(el);
+        });
+
+        // Add click effects to buttons
+        document.querySelectorAll(".cta-button").forEach((button) => {
+          button.addEventListener("click", function (e) {
+            // Create ripple effect
+            const ripple = document.createElement("span");
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        background: rgba(255, 255, 255, 0.4);
+                        border-radius: 50%;
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        pointer-events: none;
+                    `;
+
+            this.style.position = "relative";
+            this.style.overflow = "hidden";
+            this.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 600);
+          });
+        });
+
+        // Add ripple animation
+        const style = document.createElement("style");
+        style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+        document.head.appendChild(style);
+      });
+    </script>
+  </body>
+</html>
