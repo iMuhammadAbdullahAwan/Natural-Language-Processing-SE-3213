@@ -1,0 +1,34 @@
+{
+  "available_models": [
+    {
+      "id": "dictionary",
+      "name": "Dictionary-Based",
+      "file": null,
+      "metadata_file": "dictionary_model_metadata.json",
+      "status": "ready"
+    },
+    {
+      "id": "word_ml",
+      "name": "Word-based ML",
+      "file": "word_ml_model.pkl",
+      "metadata_file": "word_ml_model_metadata.json",
+      "status": "ready"
+    },
+    {
+      "id": "char_ml",
+      "name": "Character-based ML",
+      "file": "char_ml_model.pkl",
+      "metadata_file": "char_ml_model_metadata.json",
+      "status": "ready"
+    },
+    {
+      "id": "seq2seq",
+      "name": "Seq2Seq Deep Learning",
+      "file": "seq2seq_model.pth",
+      "metadata_file": "seq2seq_model_metadata.json",
+      "status": "conditional"
+    }
+  ],
+  "default_model": "dictionary",
+  "evaluation_file": "evaluation_results.json"
+}

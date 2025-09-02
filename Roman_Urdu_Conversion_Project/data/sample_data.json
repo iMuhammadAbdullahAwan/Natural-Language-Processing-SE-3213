@@ -1,0 +1,254 @@
+{
+  "train_data": [
+    {
+      "roman": "aap kaise hain",
+      "urdu": "آپ کیسے ہیں",
+      "english": "How are you"
+    },
+    {
+      "roman": "main theek hun",
+      "urdu": "میں ٹھیک ہوں",
+      "english": "I am fine"
+    },
+    {
+      "roman": "aap ka naam kya hai",
+      "urdu": "آپ کا نام کیا ہے",
+      "english": "What is your name"
+    },
+    {
+      "roman": "mera naam ahmad hai",
+      "urdu": "میرا نام احمد ہے",
+      "english": "My name is Ahmad"
+    },
+    {
+      "roman": "aap kahan se hain",
+      "urdu": "آپ کہاں سے ہیں",
+      "english": "Where are you from"
+    },
+    {
+      "roman": "main pakistan se hun",
+      "urdu": "میں پاکستان سے ہوں",
+      "english": "I am from Pakistan"
+    },
+    {
+      "roman": "aaj mausam kaisa hai",
+      "urdu": "آج موسم کیسا ہے",
+      "english": "How is the weather today"
+    },
+    {
+      "roman": "aaj bht garmi hai",
+      "urdu": "آج بہت گرمی ہے",
+      "english": "It is very hot today"
+    },
+    {
+      "roman": "ap kya kar rahe hain",
+      "urdu": "آپ کیا کر رہے ہیں",
+      "english": "What are you doing"
+    },
+    {
+      "roman": "main kitab parh raha hun",
+      "urdu": "میں کتاب پڑھ رہا ہوں",
+      "english": "I am reading a book"
+    },
+    {
+      "roman": "yeh kitab kesi hai",
+      "urdu": "یہ کتاب کیسی ہے",
+      "english": "How is this book"
+    },
+    {
+      "roman": "yeh kitab bht achi hai",
+      "urdu": "یہ کتاب بہت اچھی ہے",
+      "english": "This book is very good"
+    },
+    {
+      "roman": "ap kahan ja rahe hain",
+      "urdu": "آپ کہاں جا رہے ہیں",
+      "english": "Where are you going"
+    },
+    {
+      "roman": "main ghar ja raha hun",
+      "urdu": "میں گھر جا رہا ہوں",
+      "english": "I am going home"
+    },
+    {
+      "roman": "ghar kahan hai",
+      "urdu": "گھر کہاں ہے",
+      "english": "Where is home"
+    },
+    {
+      "roman": "mera ghar lahore mein hai",
+      "urdu": "میرا گھر لاہور میں ہے",
+      "english": "My home is in Lahore"
+    },
+    {
+      "roman": "ap ka mobile number kya hai",
+      "urdu": "آپ کا موبائل نمبر کیا ہے",
+      "english": "What is your mobile number"
+    },
+    {
+      "roman": "main ap ko kal call karunga",
+      "urdu": "میں آپ کو کل کال کروں گا",
+      "english": "I will call you tomorrow"
+    },
+    {
+      "roman": "ap facebook use karte hain",
+      "urdu": "آپ فیس بک استعمال کرتے ہیں",
+      "english": "Do you use Facebook"
+    },
+    {
+      "roman": "han main facebook use karta hun",
+      "urdu": "ہاں میں فیس بک استعمال کرتا ہوں",
+      "english": "Yes I use Facebook"
+    },
+    {
+      "roman": "mujhe bhook lagi hai",
+      "urdu": "مجھے بھوک لگی ہے",
+      "english": "I am hungry"
+    },
+    {
+      "roman": "chalo kuch khate hain",
+      "urdu": "چلو کچھ کھاتے ہیں",
+      "english": "Let's eat something"
+    },
+    {
+      "roman": "ap ko kya pasand hai",
+      "urdu": "آپ کو کیا پسند ہے",
+      "english": "What do you like"
+    },
+    {
+      "roman": "mujhe biryani pasand hai",
+      "urdu": "مجھے بریانی پسند ہے",
+      "english": "I like biryani"
+    },
+    {
+      "roman": "yahan ka khana bht mazedaar hai",
+      "urdu": "یہاں کا کھانا بہت مزیدار ہے",
+      "english": "The food here is very delicious"
+    },
+    {
+      "roman": "mujhe pani chahiye",
+      "urdu": "مجھے پانی چاہیے",
+      "english": "I need water"
+    },
+    {
+      "roman": "pani thanda hai",
+      "urdu": "پانی ٹھنڈا ہے",
+      "english": "The water is cold"
+    },
+    {
+      "roman": "main bazaar ja raha hun",
+      "urdu": "میں بازار جا رہا ہوں",
+      "english": "I am going to the market"
+    },
+    {
+      "roman": "bazaar mein kya kharidenge",
+      "urdu": "بازار میں کیا خریدیں گے",
+      "english": "What will you buy in the market"
+    },
+    {
+      "roman": "main kapde kharidne ja raha hun",
+      "urdu": "میں کپڑے خریدنے جا رہا ہوں",
+      "english": "I am going to buy clothes"
+    },
+    {
+      "roman": "yeh car kitne ki hai",
+      "urdu": "یہ گاڑی کتنے کی ہے",
+      "english": "How much is this car"
+    },
+    {
+      "roman": "yeh car bht mehngi hai",
+      "urdu": "یہ گاڑی بہت مہنگی ہے",
+      "english": "This car is very expensive"
+    },
+    {
+      "roman": "ap ki family kesi hai",
+      "urdu": "آپ کی فیملی کیسی ہے",
+      "english": "How is your family"
+    },
+    {
+      "roman": "meri family bht achi hai",
+      "urdu": "میری فیملی بہت اچھی ہے",
+      "english": "My family is very good"
+    },
+    {
+      "roman": "ap ke kitne bhai hain",
+      "urdu": "آپ کے کتنے بھائی ہیں",
+      "english": "How many brothers do you have"
+    },
+    {
+      "roman": "mere do bhai hain",
+      "urdu": "میرے دو بھائی ہیں",
+      "english": "I have two brothers"
+    },
+    {
+      "roman": "ap kya kaam karte hain",
+      "urdu": "آپ کیا کام کرتے ہیں",
+      "english": "What work do you do"
+    },
+    {
+      "roman": "main teacher hun",
+      "urdu": "میں ٹیچر ہوں",
+      "english": "I am a teacher"
+    },
+    {
+      "roman": "ap kahan padhate hain",
+      "urdu": "آپ کہاں پڑھاتے ہیں",
+      "english": "Where do you teach"
+    },
+    {
+      "roman": "main school mein padhata hun",
+      "urdu": "میں سکول میں پڑھاتا ہوں",
+      "english": "I teach in school"
+    },
+    {
+      "roman": "bacche kaise hain",
+      "urdu": "بچے کیسے ہیں",
+      "english": "How are the children"
+    },
+    {
+      "roman": "bacche bht pyare hain",
+      "urdu": "بچے بہت پیارے ہیں",
+      "english": "The children are very lovely"
+    },
+    {
+      "roman": "time kya ho raha hai",
+      "urdu": "ٹائم کیا ہو رہا ہے",
+      "english": "What time is it"
+    },
+    {
+      "roman": "abhi teen baj rahe hain",
+      "urdu": "ابھی تین بج رہے ہیں",
+      "english": "It's three o'clock now"
+    },
+    {
+      "roman": "mujhe der ho rahi hai",
+      "urdu": "مجھے دیر ہو رہی ہے",
+      "english": "I am getting late"
+    },
+    {
+      "roman": "main jaldi mein hun",
+      "urdu": "میں جلدی میں ہوں",
+      "english": "I am in a hurry"
+    },
+    {
+      "roman": "ap bus ka intezar kar rahe hain",
+      "urdu": "آپ بس کا انتظار کر رہے ہیں",
+      "english": "Are you waiting for the bus"
+    },
+    {
+      "roman": "han main bus ka intezar kar raha hun",
+      "urdu": "ہاں میں بس کا انتظار کر رہا ہوں",
+      "english": "Yes I am waiting for the bus"
+    },
+    {
+      "roman": "bus kitni der mein ayegi",
+      "urdu": "بس کتنی دیر میں آئے گی",
+      "english": "In how much time will the bus come"
+    },
+    {
+      "roman": "bus das minute mein ayegi",
+      "urdu": "بس دس منٹ میں آئے گی",
+      "english": "The bus will come in ten minutes"
+    }
+  ]
+}

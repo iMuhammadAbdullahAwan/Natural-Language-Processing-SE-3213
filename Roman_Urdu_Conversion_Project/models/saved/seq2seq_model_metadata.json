@@ -1,0 +1,7 @@
+{
+  "model_type": "seq2seq",
+  "model_name": "Sequence-to-Sequence Converter (Not Available)",
+  "description": "Deep learning model - requires more training data",
+  "status": "not_trained",
+  "reason": "Seq2SeqModel.__init__() missing 2 required positional arguments: 'roman_vocab_size' and 'urdu_vocab_size'"
+}

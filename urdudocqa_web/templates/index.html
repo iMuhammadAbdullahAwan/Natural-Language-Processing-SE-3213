@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>اردو دستاویز سوالات و جوابات</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @font-face {
+        font-family: "Jameel Noori Nastaleeq";
+        src: url("/fonts/Jameel Noori Nastaleeq Kasheeda.ttf")
+          format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      .urdu-font {
+        font-family: "Jameel Noori Nastaleeq", serif;
+      }
+
+      .chat-scroll::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      .chat-scroll::-webkit-scrollbar-track {
+        background: #f1f5f9;
+      }
+
+      .chat-scroll::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 2px;
+      }
+
+      .chat-scroll::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+
+      .typing-indicator {
+        display: flex;
+        gap: 4px;
+        padding: 8px 0;
+      }
+
+      .typing-dot {
+        width: 8px;
+        height: 8px;
+        background: #64748b;
+        border-radius: 50%;
+        animation: typing 1.4s infinite ease-in-out;
+      }
+
+      .typing-dot:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .typing-dot:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .typing-dot:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes typing {
+        0%,
+        60%,
+        100% {
+          transform: scale(1);
+          opacity: 0.4;
+        }
+        30% {
+          transform: scale(1.3);
+          opacity: 1;
+        }
+      }
+
+      .message-animation {
+        animation: fadeInUp 0.3s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .upload-progress {
+        transition: width 0.3s ease;
+      }
+
+      .custom-file-input {
+        background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+        transition: all 0.3s ease;
+      }
+
+      .custom-file-input:hover {
+        background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              urdu: ["Jameel Noori Nastaleeq", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .modal-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-content {
+        background: #fff;
+        border-radius: 1rem;
+        padding: 2rem 2.5rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        min-width: 300px;
+        text-align: center;
+      }
+      .modal-spinner {
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+        color: #2563eb;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 font-urdu">
+    <!-- Modal Loading Popup -->
+    <div id="modalLoading" class="modal-bg" style="display: none">
+      <div class="modal-content urdu-font">
+        <div class="modal-spinner">
+          <i class="fas fa-spinner fa-spin"></i>
+        </div>
+        <div id="modalLoadingText" class="text-lg text-gray-700">
+          پروسیسنگ ہو رہی ہے...
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="min-h-screen flex flex-col">
+      <!-- Header -->
+      <header class="bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3 rtl:space-x-reverse">
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-robot text-white text-lg"></i>
+              </div>
+              <div>
+                <h1 class="text-xl font-bold text-gray-900 urdu-font">
+                  اردو دستاویز سوالات و جوابات
+                </h1>
+                <p class="text-sm text-gray-600">
+                  اپنے PDF دستاویزات سے سوالات پوچھیں
+                </p>
+              </div>
+            </div>
+
+            <!-- Simple Text Generator Link -->
+            <div
+              class="mt-4 p-3 bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg"
+            >
+              <div class="flex items-center justify-center">
+                <div class="text-center">
+                  <a
+                    href="/simple"
+                    class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
+                  >
+                    <i class="fas fa-magic mr-2"></i>
+                    سادہ اردو متن تخلیق
+                  </a>
+                  <p class="text-xs text-gray-600 mt-1">
+                    بغیر PDF کے فوری طور پر اردو متن بنائیں
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+              <div
+                class="w-3 h-3 bg-green-400 rounded-full animate-pulse"
+              ></div>
+              <span class="text-sm text-gray-600">آن لائن</span>
+              <a
+                href="/metrics/report"
+                class="ml-4 text-sm text-blue-600 hover:text-blue-800 flex items-center"
+                title="کارکردگی رپورٹ"
+              >
+                <i class="fas fa-chart-line ml-2"></i>
+                کارکردگی
+              </a>
+              <form method="post" action="/reset" class="ml-4">
+                <button
+                  type="submit"
+                  class="text-sm text-red-600 hover:text-red-800 flex items-center"
+                  title="چیٹ ری سیٹ کریں"
+                >
+                  <i class="fas fa-rotate-left ml-2"></i>
+                  ری سیٹ
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Upload Section -->
+      <div class="bg-white border-b border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 py-6">
+          <form
+            id="uploadForm"
+            method="post"
+            enctype="multipart/form-data"
+            class="space-y-4"
+          >
+            <div
+              class="flex flex-col sm:flex-row gap-4 items-start sm:items-end"
+            >
+              <!-- File Input -->
+              <div class="flex-1">
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                  <i class="fas fa-file-pdf text-red-500 mr-2"></i>
+                  PDF فائل منتخب کریں
+                </label>
+                <div class="relative">
+                  <input
+                    type="file"
+                    id="fileInput"
+                    name="file"
+                    accept=".pdf"
+                    class="hidden"
+                  />
+                  <label
+                    for="fileInput"
+                    class="custom-file-input cursor-pointer inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  >
+                    <i class="fas fa-file-upload mr-2"></i>
+                    <span id="fileLabel">فائل منتخب کریں</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Upload Button -->
+              <button
+                type="submit"
+                id="uploadBtn"
+                class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 flex items-center space-x-2 rtl:space-x-reverse disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>اپ لوڈ کریں</span>
+              </button>
+
+              <!-- Clear Database Button -->
+              <button
+                type="button"
+                id="clearBtn"
+                onclick="clearDatabase()"
+                class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 flex items-center space-x-2 rtl:space-x-reverse"
+                title="ڈیٹابیس صاف کریں"
+              >
+                <i class="fas fa-trash-alt"></i>
+                <span>ڈیٹابیس صاف کریں</span>
+              </button>
+            </div>
+
+            <!-- Progress Bar -->
+            <div id="uploadProgress" class="hidden">
+              <div class="bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-blue-500 h-2 rounded-full upload-progress"
+                  style="width: 0%"
+                ></div>
+              </div>
+            </div>
+          </form>
+
+          <!-- Status Message -->
+          {% if message %}
+          <div
+            class="mt-4 p-4 rounded-lg {% if 'کامیابی' in message or 'successfully' in message %}bg-green-50 border border-green-200 text-green-800{% else %}bg-red-50 border border-red-200 text-red-800{% endif %}"
+          >
+            <div class="flex items-center">
+              <i
+                class="fas {% if 'کامیابی' in message or 'successfully' in message %}fa-check-circle{% else %}fa-exclamation-triangle{% endif %} mr-2"
+              ></i>
+              <span>{{ message }}</span>
+            </div>
+          </div>
+          {% endif %}
+
+          <!-- Document Info -->
+          {% if document_info %}
+          <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+            <div class="flex items-center text-blue-800">
+              <i class="fas fa-info-circle mr-2"></i>
+              <span class="text-sm">{{ document_info }}</span>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Chat Container -->
+      <div class="flex-1 max-w-4xl mx-auto w-full px-4 py-6">
+        <div
+          class="bg-white rounded-xl shadow-sm border border-gray-200 h-full flex flex-col"
+        >
+          <!-- Messages Area -->
+          <div
+            id="messages"
+            class="flex-1 p-6 overflow-y-auto chat-scroll space-y-6"
+          >
+            <!-- Welcome Message -->
+            <div
+              class="flex items-start space-x-3 rtl:space-x-reverse message-animation"
+            >
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0"
+              >
+                <i class="fas fa-robot text-white text-sm"></i>
+              </div>
+              <div class="flex-1">
+                <div class="bg-gray-100 rounded-lg px-4 py-3 max-w-md">
+                  <p class="text-gray-800 urdu-font text-lg leading-relaxed">
+                    آسلام علیکم! میں آپ کا اردو دستاویز اسسٹنٹ ہوں۔ پہلے اپنی
+                    PDF فائل اپ لوڈ کریں، پھر کوئی بھی سوال پوچھیں۔
+                  </p>
+                </div>
+                <div
+                  class="text-xs text-gray-500 mt-2 flex items-center space-x-1 rtl:space-x-reverse"
+                >
+                  <i class="fas fa-clock"></i>
+                  <span>ابھی</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Conversation History -->
+            {% if history %} {% for pair in history %}
+            <!-- User message from history -->
+            <div
+              class="flex items-start space-x-3 rtl:space-x-reverse justify-end message-animation"
+            >
+              <div class="flex-1 flex justify-end">
+                <div
+                  class="bg-blue-500 text-white rounded-lg px-4 py-3 max-w-md"
+                >
+                  <p class="urdu-font text-lg leading-relaxed">{{ pair[0] }}</p>
+                </div>
+              </div>
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center flex-shrink-0"
+              >
+                <i class="fas fa-user text-white text-sm"></i>
+              </div>
+            </div>
+            <!-- Assistant message from history -->
+            <div
+              class="flex items-start space-x-3 rtl:space-x-reverse message-animation"
+            >
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center flex-shrink-0"
+              >
+                <i class="fas fa-robot text-white text-sm"></i>
+              </div>
+              <div class="flex-1">
+                <div class="bg-gray-100 rounded-lg px-4 py-3 max-w-3xl">
+                  <p class="text-gray-800 urdu-font text-lg leading-relaxed">
+                    {{ pair[1] }}
+                  </p>
+                </div>
+                <div
+                  class="text-xs text-gray-500 mt-2 flex items-center space-x-1 rtl:space-x-reverse"
+                >
+                  <i class="fas fa-clock"></i>
+                  <span>پچھلا</span>
+                </div>
+              </div>
+            </div>
+            {% endfor %} {% endif %}
+
+            <!-- Dynamic Messages (latest round) -->
+            {% if user_question %}
+            <!-- User Message -->
+            <div
+              class="flex items-start space-x-3 rtl:space-x-reverse justify-end message-animation"
+            >
+              <div class="flex-1 flex justify-end">
+                <div
+                  class="bg-blue-500 text-white rounded-lg px-4 py-3 max-w-md"
+                >
+                  <p class="urdu-font text-lg leading-relaxed">
+                    {{ user_question }}
+                  </p>
+                </div>
+              </div>
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center flex-shrink-0"
+              >
+                <i class="fas fa-user text-white text-sm"></i>
+              </div>
+            </div>
+
+            {% if answer %}
+            <!-- Bot Response -->
+            <div
+              class="flex items-start space-x-3 rtl:space-x-reverse message-animation"
+            >
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center flex-shrink-0"
+              >
+                <i class="fas fa-robot text-white text-sm"></i>
+              </div>
+              <div class="flex-1">
+                <div class="bg-gray-100 rounded-lg px-4 py-3 max-w-3xl">
+                  <p
+                    class="text-gray-800 urdu-font text-lg leading-relaxed"
+                    id="typedAnswer"
+                  >
+                    {{ answer }}
+                  </p>
+                </div>
+                <div
+                  class="text-xs text-gray-500 mt-2 flex items-center space-x-1 rtl:space-x-reverse"
+                >
+                  <i class="fas fa-clock"></i>
+                  <span>ابھی</span>
+                </div>
+              </div>
+            </div>
+            {% endif %} {% endif %}
+          </div>
+
+          <!-- Input Area -->
+          <div class="border-t border-gray-200 p-4">
+            <form
+              id="queryForm"
+              method="post"
+              class="flex items-end space-x-3 rtl:space-x-reverse"
+            >
+              <div class="flex-1">
+                <div class="relative">
+                  <textarea
+                    name="question"
+                    id="messageInput"
+                    placeholder="اپنا سوال یہاں لکھیں..."
+                    class="w-full resize-none border border-gray-300 rounded-lg px-4 py-3 pr-12 focus:ring-2 focus:ring-blue-500 focus:border-transparent max-h-32 urdu-font text-lg"
+                    rows="1"
+                  ></textarea>
+                  <div
+                    class="absolute left-3 bottom-3 flex items-center space-x-2 rtl:space-x-reverse"
+                  >
+                    <button
+                      type="button"
+                      class="text-gray-400 hover:text-gray-600 transition-colors"
+                    >
+                      <i class="fas fa-paperclip"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <button
+                type="submit"
+                id="sendBtn"
+                class="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center min-w-[3rem]"
+              >
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+            <div class="mt-2 text-xs text-gray-500 text-center">
+              Enter دبا کر بھیجیں، Shift+Enter نئی لائن کے لیے
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Modal popup helpers
+      function showModal(text) {
+        const modal = document.getElementById('modalLoading');
+        const modalText = document.getElementById('modalLoadingText');
+        modalText.textContent = text;
+        modal.style.display = 'flex';
+      }
+      function hideModal() {
+        document.getElementById('modalLoading').style.display = 'none';
+      }
+
+      // Always hide modal on initial page load (defensive)
+      document.addEventListener('DOMContentLoaded', () => {
+        hideModal();
+      });
+
+      // Auto-resize textarea
+      const messageInput = document.getElementById('messageInput');
+      messageInput.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = Math.min(this.scrollHeight, 128) + 'px';
+      });
+
+      // File input handling
+      const fileInput = document.getElementById('fileInput');
+      const fileLabel = document.getElementById('fileLabel');
+      fileInput.addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+          fileLabel.innerHTML = `<i class="fas fa-file-pdf text-red-300 mr-2"></i>${this.files[0].name}`;
+        }
+      });
+
+      // Upload form handling (AJAX)
+      const uploadForm = document.getElementById('uploadForm');
+      const uploadBtn = document.getElementById('uploadBtn');
+      const uploadProgress = document.getElementById('uploadProgress');
+      uploadForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const file = fileInput.files[0];
+        if (!file) return;
+        uploadBtn.disabled = true;
+        showModal('فائل اپ لوڈ ہو رہی ہے...');
+
+        // Step 1: Upload file
+        const formData = new FormData();
+        formData.append('file', file);
+        // Add a timeout so UI doesn't stay stuck forever
+        const uCtl = new AbortController();
+        const uTimer = setTimeout(() => uCtl.abort(), 120000); // 120s safety timeout
+        fetch('/upload', {
+          method: 'POST',
+          body: formData,
+          signal: uCtl.signal
+        })
+        .then(resp => {
+          showModal('سرور پروسیس کر رہا ہے...');
+          return resp.text();
+        })
+        .then(html => {
+          clearTimeout(uTimer);
+          showModal('فائل کنورٹ ہو گئی!');
+          setTimeout(() => {
+            hideModal();
+            document.open();
+            document.write(html);
+            document.close();
+          }, 700);
+        })
+        .catch(err => {
+          showModal('خرابی: اپ لوڈ ناکام ہو گئی');
+          setTimeout(hideModal, 1200);
+          clearTimeout(uTimer);
+        });
+      });
+
+      // Query form handling (AJAX)
+      const queryForm = document.getElementById('queryForm');
+      const sendBtn = document.getElementById('sendBtn');
+      const messagesContainer = document.getElementById('messages');
+      queryForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const question = messageInput.value.trim();
+        if (!question) return;
+        sendBtn.disabled = true;
+        showModal('سوال پروسیس ہو رہا ہے...');
+
+        // Step 1: Send query
+        const formData = new FormData();
+        formData.append('question', question);
+        // Add a timeout so UI doesn't stay stuck forever
+        const qCtl = new AbortController();
+        const qTimer = setTimeout(() => qCtl.abort(), 120000); // 120s safety timeout
+        fetch('/query', {
+          method: 'POST',
+          body: formData,
+          signal: qCtl.signal
+        })
+        .then(resp => {
+          showModal('LLM جواب تیار کر رہا ہے...');
+          return resp.text();
+        })
+        .then(html => {
+          clearTimeout(qTimer);
+          hideModal();
+          document.open();
+          document.write(html);
+          document.close();
+        })
+        .catch(err => {
+          showModal('خرابی: سوال ناکام ہو گیا');
+          setTimeout(hideModal, 1200);
+          clearTimeout(qTimer);
+        });
+      });
+
+      function scrollToBottom() {
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      // Enter to send
+      messageInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          queryForm.dispatchEvent(new Event('submit'));
+        }
+      });
+
+      // Typing animation for responses
+      {% if answer %}
+      document.addEventListener('DOMContentLoaded', function() {
+        const answer = `{{ answer|safe }}`;
+        const typedAnswerElement = document.getElementById('typedAnswer');
+        if (typedAnswerElement && answer) {
+          typeText(answer, typedAnswerElement);
+        }
+      });
+      function typeText(text, element) {
+        let index = 0;
+        element.textContent = '';
+        function type() {
+          if (index < text.length) {
+            element.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 30);
+            scrollToBottom();
+          }
+        }
+        type();
+      }
+      {% endif %}
+
+      // Reset button state when page loads
+      window.addEventListener('load', function() {
+        sendBtn.disabled = false;
+        sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i>';
+      });
+
+      // Clear database function
+      function clearDatabase() {
+        if (confirm('کیا آپ واقعی ڈیٹابیس صاف کرنا چاہتے ہیں؟ یہ تمام اپ لوڈ شدہ ڈیٹا کو ہٹا دے گا۔')) {
+          const clearBtn = document.getElementById('clearBtn');
+          clearBtn.disabled = true;
+          clearBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>صاف کر رہا ہے...';
+          showModal('ڈیٹابیس صاف ہو رہی ہے...');
+          // Create a form and submit
+          const form = document.createElement('form');
+          form.method = 'POST';
+          form.action = '/clear-database';
+          document.body.appendChild(form);
+          form.submit();
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "model_type": "ml_word",
+  "model_name": "Word-based ML Converter",
+  "description": "Machine learning model using word-level features",
+  "vocabulary_size": 90,
+  "algorithm": "Random Forest",
+  "feature_type": "TF-IDF"
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>کارکردگی رپورٹ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @font-face {
+        font-family: "Jameel Noori Nastaleeq";
+        src: url("/fonts/Jameel Noori Nastaleeq Kasheeda.ttf")
+          format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      .urdu-font {
+        font-family: "Jameel Noori Nastaleeq", serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div class="max-w-5xl mx-auto p-6">
+      <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold urdu-font">کارکردگی رپورٹ</h1>
+        <a href="/" class="text-blue-600 hover:text-blue-800 text-sm"
+          >← واپس جائیں</a
+        >
+      </div>
+
+      <!-- Summary Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-white border rounded-lg p-4">
+          <div class="text-gray-500 text-sm">اپ ٹائم (سیکنڈ)</div>
+          <div class="text-2xl font-semibold">{{ summary.uptime_sec }}</div>
+        </div>
+        <div class="bg-white border rounded-lg p-4">
+          <div class="text-gray-500 text-sm">اپ لوڈ کی گئی دستاویزات</div>
+          <div class="text-2xl font-semibold">
+            {{ summary.documents_uploaded }}
+          </div>
+        </div>
+        <div class="bg-white border rounded-lg p-4">
+          <div class="text-gray-500 text-sm">کل سوالات</div>
+          <div class="text-2xl font-semibold">{{ summary.total_queries }}</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div class="bg-white border rounded-lg p-4">
+          <div class="text-gray-500 text-sm">اوسط اپ لوڈ تاخیر (ms)</div>
+          <div class="text-2xl font-semibold">{{ summary.avg_upload_ms }}</div>
+        </div>
+        <div class="bg-white border rounded-lg p-4">
+          <div class="text-gray-500 text-sm">P95 اپ لوڈ (ms)</div>
+          <div class="text-2xl font-semibold">{{ summary.p95_upload_ms }}</div>
+        </div>
+        <div class="bg-white border rounded-lg p-4">
+          <div class="text-gray-500 text-sm">اوسط سوال تاخیر (ms)</div>
+          <div class="text-2xl font-semibold">{{ summary.avg_query_ms }}</div>
+        </div>
+      </div>
+
+      <!-- System Metrics -->
+      <div class="bg-white border rounded-lg p-4 mb-8">
+        <div class="text-gray-700 font-semibold mb-3">سسٹم میٹرکس</div>
+        <div
+          class="text-sm text-gray-700 grid grid-cols-1 md:grid-cols-2 gap-2"
+        >
+          <div>
+            GPU: {{ 'موجود' if summary.system.gpu_available else 'نہیں' }} {{
+            '(' ~ summary.system.gpu_name ~ ')' if summary.system.gpu_name }}
+          </div>
+          <div>
+            CPU %: {{ summary.system.cpu_percent if summary.system.cpu_percent
+            is defined else 'N/A' }}
+          </div>
+          <div>
+            میموری: {{ summary.system.mem_used_gb if summary.system.mem_used_gb
+            is defined else 'N/A' }} / {{ summary.system.mem_total_gb if
+            summary.system.mem_total_gb is defined else 'N/A' }} GB
+          </div>
+          <div>
+            میموری %: {{ summary.system.mem_percent if
+            summary.system.mem_percent is defined else 'N/A' }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Uploads -->
+      <div class="bg-white border rounded-lg p-4 mb-8">
+        <div class="flex items-center justify-between mb-3">
+          <div class="text-gray-700 font-semibold">حالیہ اپ لوڈز</div>
+          <div class="text-sm text-gray-500">
+            صفحات: {{ summary.total_pages }} | حصے: {{ summary.total_chunks }}
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-sm">
+            <thead>
+              <tr class="text-left text-gray-500">
+                <th class="py-2 pr-4">فائل</th>
+                <th class="py-2 pr-4">صفحات</th>
+                <th class="py-2 pr-4">حصے</th>
+                <th class="py-2 pr-4">کل (ms)</th>
+                <th class="py-2 pr-4">حالت</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for u in recent_uploads %}
+              <tr class="border-t">
+                <td class="py-2 pr-4">{{ u.file }}</td>
+                <td class="py-2 pr-4">{{ u.pages }}</td>
+                <td class="py-2 pr-4">{{ u.chunks }}</td>
+                <td class="py-2 pr-4">
+                  {{ u.durations_ms.total_ms if u.durations_ms.total_ms is
+                  defined else 0 }}
+                </td>
+                <td class="py-2 pr-4">
+                  {{ 'کامیاب' if u.status == 'success' else 'خرابی' }}
+                </td>
+              </tr>
+              {% else %}
+              <tr>
+                <td class="py-2 text-gray-500" colspan="5">کوئی ڈیٹا نہیں</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Recent Queries -->
+      <div class="bg-white border rounded-lg p-4 mb-8">
+        <div class="text-gray-700 font-semibold mb-3">حالیہ سوالات</div>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-sm">
+            <thead>
+              <tr class="text-left text-gray-500">
+                <th class="py-2 pr-4">سوال</th>
+                <th class="py-2 pr-4">کامیابی</th>
+                <th class="py-2 pr-4">ماڈل</th>
+                <th class="py-2 pr-4">جواب حروف</th>
+                <th class="py-2 pr-4">وقت (ms)</th>
+                <th class="py-2 pr-4">اعتماد</th>
+                <th class="py-2 pr-4">ذرائع</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for q in recent_queries %}
+              <tr class="border-t">
+                <td class="py-2 pr-4">
+                  {{ q.question[:80] }}{% if q.question|length > 80 %}...{%
+                  endif %}
+                </td>
+                <td class="py-2 pr-4">{{ 'ہاں' if q.success else 'نہیں' }}</td>
+                <td class="py-2 pr-4">{{ q.model or '-' }}</td>
+                <td class="py-2 pr-4">{{ q.answer_chars or 0 }}</td>
+                <td class="py-2 pr-4">
+                  {{ q.durations_ms.qa_total_ms if q.durations_ms.qa_total_ms is
+                  defined else 0 }}
+                </td>
+                <td class="py-2 pr-4">
+                  {{ '%.2f'|format(q.confidence) if q.confidence is not none
+                  else '-' }}
+                </td>
+                <td class="py-2 pr-4">
+                  {{ q.sources_count if q.sources_count is not none else '-' }}
+                </td>
+              </tr>
+              {% else %}
+              <tr>
+                <td class="py-2 text-gray-500" colspan="7">کوئی ڈیٹا نہیں</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="text-xs text-gray-500">
+        JSON: <a href="/metrics" class="text-blue-600">/metrics</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "dictionary_model": {
+    "BLEU": 0.75,
+    "ROUGE-L": 0.72,
+    "Word_Accuracy": 0.68,
+    "Character_Accuracy": 0.85,
+    "Sentence_Accuracy": 0.45,
+    "Edit_Distance": 2.3
+  },
+  "word_ml_model": {
+    "BLEU": 0.68,
+    "ROUGE-L": 0.65,
+    "Word_Accuracy": 0.62,
+    "Character_Accuracy": 0.78,
+    "Sentence_Accuracy": 0.35,
+    "Edit_Distance": 2.8
+  },
+  "char_ml_model": {
+    "BLEU": 0.58,
+    "ROUGE-L": 0.56,
+    "Word_Accuracy": 0.54,
+    "Character_Accuracy": 0.72,
+    "Sentence_Accuracy": 0.25,
+    "Edit_Distance": 3.5
+  },
+  "test_info": {
+    "test_set_size": 20,
+    "evaluation_date": "2025-08-30",
+    "metrics_explanation": {
+      "BLEU": "Bilingual Evaluation Understudy - measures translation quality",
+      "ROUGE-L": "Recall-Oriented Understudy for Gisting Evaluation - Longest Common Subsequence",
+      "Word_Accuracy": "Percentage of correctly converted words",
+      "Character_Accuracy": "Percentage of correctly converted characters",
+      "Sentence_Accuracy": "Percentage of perfectly converted sentences",
+      "Edit_Distance": "Average Levenshtein distance between prediction and reference"
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "test_data": [
+    {
+      "roman": "salam aap kaise hain",
+      "urdu": "سلام آپ کیسے ہیں",
+      "english": "Hello how are you"
+    },
+    {
+      "roman": "main acha hun shukria",
+      "urdu": "میں اچھا ہوں شکریہ",
+      "english": "I am good thank you"
+    },
+    {
+      "roman": "aaj ka din kaisa guzra",
+      "urdu": "آج کا دن کیسا گزرا",
+      "english": "How was your day today"
+    },
+    {
+      "roman": "aaj ka din bht acha guzra",
+      "urdu": "آج کا دن بہت اچھا گزرا",
+      "english": "Today was a very good day"
+    },
+    {
+      "roman": "ap kal kya karenge",
+      "urdu": "آپ کل کیا کریں گے",
+      "english": "What will you do tomorrow"
+    },
+    {
+      "roman": "kal main office jaunga",
+      "urdu": "کل میں آفس جاؤں گا",
+      "english": "Tomorrow I will go to office"
+    },
+    {
+      "roman": "yeh jagah kitni sundar hai",
+      "urdu": "یہ جگہ کتنی سندر ہے",
+      "english": "How beautiful this place is"
+    },
+    {
+      "roman": "mujhe yeh jagah bht pasand hai",
+      "urdu": "مجھے یہ جگہ بہت پسند ہے",
+      "english": "I like this place very much"
+    },
+    {
+      "roman": "ap kab wapis ayenge",
+      "urdu": "آپ کب واپس آئیں گے",
+      "english": "When will you come back"
+    },
+    {
+      "roman": "main do din baad wapis aunga",
+      "urdu": "میں دو دن بعد واپس آؤں گا",
+      "english": "I will come back after two days"
+    },
+    {
+      "roman": "is restaurant ka khana kaisa hai",
+      "urdu": "اس ریسٹورنٹ کا کھانا کیسا ہے",
+      "english": "How is the food of this restaurant"
+    },
+    {
+      "roman": "yahan ka khana bht lajawab hai",
+      "urdu": "یہاں کا کھانا بہت لاجواب ہے",
+      "english": "The food here is excellent"
+    },
+    {
+      "roman": "meri gari kharab ho gayi hai",
+      "urdu": "میری گاڑی خراب ہو گئی ہے",
+      "english": "My car has broken down"
+    },
+    {
+      "roman": "ap mechanic se contact kariye",
+      "urdu": "آپ میکینک سے رابطہ کریں",
+      "english": "You should contact a mechanic"
+    },
+    {
+      "roman": "yeh movie kitni achi hai",
+      "urdu": "یہ فلم کتنی اچھی ہے",
+      "english": "How good is this movie"
+    },
+    {
+      "roman": "yeh movie dekh kar maza aya",
+      "urdu": "یہ فلم دیکھ کر مزہ آیا",
+      "english": "I enjoyed watching this movie"
+    },
+    {
+      "roman": "ap cricket dekhte hain",
+      "urdu": "آپ کرکٹ دیکھتے ہیں",
+      "english": "Do you watch cricket"
+    },
+    {
+      "roman": "han mujhe cricket bht pasand hai",
+      "urdu": "ہاں مجھے کرکٹ بہت پسند ہے",
+      "english": "Yes I like cricket very much"
+    },
+    {
+      "roman": "pakistan ki team kaisi khel rahi hai",
+      "urdu": "پاکستان کی ٹیم کیسی کھیل رہی ہے",
+      "english": "How is Pakistan team playing"
+    },
+    {
+      "roman": "pakistan ki team achi performance de rahi hai",
+      "urdu": "پاکستان کی ٹیم اچھی پرفارمنس دے رہی ہے",
+      "english": "Pakistan team is giving good performance"
+    }
+  ]
+}

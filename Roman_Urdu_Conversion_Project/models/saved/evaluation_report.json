@@ -1,0 +1,579 @@
+{
+  "evaluation_summary": {
+    "total_models_evaluated": 3,
+    "models": [
+      "dictionary_model",
+      "ml_model_word_based",
+      "ml_model_character_based"
+    ],
+    "evaluation_date": "2025-09-02T23:18:37.021919"
+  },
+  "individual_results": {
+    "dictionary_model": {
+      "model_type": "Dictionary-based",
+      "metrics": {
+        "word_accuracy": 0.34234234234234234,
+        "sentence_accuracy": 0.0,
+        "character_accuracy": 0.2729044834307992,
+        "bleu_score": 0.09105414776541167,
+        "rouge_l": 0.36930097680097684,
+        "meteor_score": 0.3783918858918859,
+        "avg_edit_distance": 13.7
+      },
+      "model_statistics": {
+        "total_conversions": 20,
+        "successful_conversions": 0,
+        "word_level_accuracy": 0.0,
+        "unknown_words": [
+          "yahan",
+          "team",
+          "rahi",
+          "wapis",
+          "ka",
+          "kaisi",
+          "maza",
+          "movie",
+          "aunga",
+          "guzra",
+          "se",
+          "meri",
+          "lajawab",
+          "cricket",
+          "ayenge",
+          "ki",
+          "han",
+          "mechanic",
+          "restaurant",
+          "jagah",
+          "dekhte",
+          "hun",
+          "bht",
+          "performance",
+          "pasand",
+          "mujhe",
+          "kaisa",
+          "de",
+          "kharab",
+          "is",
+          "jaunga",
+          "kariye"
+        ],
+        "dictionary_size": 348,
+        "expanded_dictionary_size": 1588,
+        "unknown_words_count": 32
+      },
+      "coverage": {
+        "total_words": 107,
+        "covered_words": 52,
+        "coverage_percentage": 48.598130841121495,
+        "unknown_words": [
+          "contact",
+          "karenge",
+          "yahan",
+          "sundar",
+          "team",
+          "rahi",
+          "wapis",
+          "ka",
+          "kaisi",
+          "maza",
+          "movie",
+          "aunga",
+          "guzra",
+          "se",
+          "meri",
+          "lajawab",
+          "cricket",
+          "kar",
+          "ayenge",
+          "ki",
+          "han",
+          "mechanic",
+          "restaurant",
+          "jagah",
+          "dekhte",
+          "hun",
+          "bht",
+          "performance",
+          "dekh",
+          "pasand",
+          "mujhe",
+          "kaisa",
+          "de",
+          "kharab",
+          "is",
+          "khel",
+          "jaunga",
+          "kariye"
+        ],
+        "unknown_words_count": 38
+      },
+      "error_analysis": {
+        "substitution_errors": 63,
+        "insertion_errors": 0,
+        "deletion_errors": 4,
+        "word_order_errors": 0,
+        "unknown_word_errors": 0,
+        "total_errors": 20,
+        "error_examples": [
+          {
+            "prediction": "سلام آپ کیسے ہیں۔",
+            "reference": "سلام آپ کیسے ہیں",
+            "error_type": "substitution"
+          },
+          {
+            "prediction": "میں اچھا hun شکریہ۔",
+            "reference": "میں اچھا ہوں شکریہ",
+            "error_type": "substitution"
+          },
+          {
+            "prediction": "آج ka دن kaisa guzra۔",
+            "reference": "آج کا دن کیسا گزرا",
+            "error_type": "substitution"
+          },
+          {
+            "prediction": "آج ka دن bht اچھا guzra۔",
+            "reference": "آج کا دن بہت اچھا گزرا",
+            "error_type": "substitution"
+          },
+          {
+            "prediction": "آپ کل کیا نارنگی۔",
+            "reference": "آپ کل کیا کریں گے",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "کل میں آفس jaunga۔",
+            "reference": "کل میں آفس جاؤں گا",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "یہ jagah کتنی دوڑنا ہے۔",
+            "reference": "یہ جگہ کتنی سندر ہے",
+            "error_type": "substitution"
+          },
+          {
+            "prediction": "mujhe یہ jagah bht pasand ہے۔",
+            "reference": "مجھے یہ جگہ بہت پسند ہے",
+            "error_type": "substitution"
+          },
+          {
+            "prediction": "آپ کب wapis ayenge۔",
+            "reference": "آپ کب واپس آئیں گے",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "میں دو دن بعد wapis aunga۔",
+            "reference": "میں دو دن بعد واپس آؤں گا",
+            "error_type": "length_mismatch"
+          }
+        ]
+      },
+      "length_analysis": {
+        "avg_pred_length": 5.35,
+        "avg_ref_length": 5.55,
+        "length_difference": 0.2,
+        "length_ratio": 0.9628571428571429,
+        "min_pred_length": 4,
+        "max_pred_length": 8,
+        "min_ref_length": 4,
+        "max_ref_length": 8
+      },
+      "coverage_analysis": {
+        "unique_predicted_words": 62,
+        "unique_reference_words": 64,
+        "word_overlap": 21,
+        "coverage_ratio": 0.328125,
+        "unknown_words": [
+          "کیسے",
+          "کتنی",
+          "yahan",
+          "شکریہ۔",
+          "نارنگی۔",
+          "team",
+          "ترسوں",
+          "wapis",
+          "ہیں۔",
+          "آیا۔",
+          "rahi",
+          "ہے",
+          "ka",
+          "kaisi",
+          "یہ",
+          "گئی",
+          "کب",
+          "maza",
+          "کھڑا",
+          "movie",
+          "بعد",
+          "se",
+          "اچھی",
+          "دن",
+          "meri",
+          "jaunga۔",
+          "آپ",
+          "lajawab",
+          "میں",
+          "سلام",
+          "cricket",
+          "ہے۔",
+          "ki",
+          "آفس",
+          "han",
+          "mechanic",
+          "کیا",
+          "کھانا",
+          "jagah",
+          "restaurant",
+          "dekhte",
+          "لاکھ",
+          "aunga۔",
+          "دو",
+          "گاڑی",
+          "hun",
+          "آج",
+          "bht",
+          "performance",
+          "کل",
+          "pasand",
+          "ayenge۔",
+          "mujhe",
+          "kaisa",
+          "kariye۔",
+          "kharab",
+          "de",
+          "is",
+          "پاکستان",
+          "guzra۔",
+          "اچھا",
+          "دوڑنا"
+        ],
+        "unknown_word_count": 62
+      },
+      "predictions": [
+        "سلام آپ کیسے ہیں۔",
+        "میں اچھا hun شکریہ۔",
+        "آج ka دن kaisa guzra۔",
+        "آج ka دن bht اچھا guzra۔",
+        "آپ کل کیا نارنگی۔",
+        "کل میں آفس jaunga۔",
+        "یہ jagah کتنی دوڑنا ہے۔",
+        "mujhe یہ jagah bht pasand ہے۔",
+        "آپ کب wapis ayenge۔",
+        "میں دو دن بعد wapis aunga۔"
+      ],
+      "references": [
+        "سلام آپ کیسے ہیں",
+        "میں اچھا ہوں شکریہ",
+        "آج کا دن کیسا گزرا",
+        "آج کا دن بہت اچھا گزرا",
+        "آپ کل کیا کریں گے",
+        "کل میں آفس جاؤں گا",
+        "یہ جگہ کتنی سندر ہے",
+        "مجھے یہ جگہ بہت پسند ہے",
+        "آپ کب واپس آئیں گے",
+        "میں دو دن بعد واپس آؤں گا"
+      ],
+      "test_samples": 20
+    },
+    "ml_model_word_based": {
+      "model_type": "ML-based (word_based)",
+      "metrics": {
+        "word_accuracy": 0.5585585585585585,
+        "sentence_accuracy": 0.0,
+        "character_accuracy": 0.36302895322939865,
+        "bleu_score": 0.17086580427683765,
+        "rouge_l": 0.5660393772893773,
+        "meteor_score": 0.5865367965367965,
+        "avg_edit_distance": 7.8
+      },
+      "error_analysis": {
+        "substitution_errors": 35,
+        "insertion_errors": 0,
+        "deletion_errors": 4,
+        "word_order_errors": 0,
+        "unknown_word_errors": 0,
+        "total_errors": 20,
+        "error_examples": [
+          {
+            "prediction": "میں آپ کیسے ہیں",
+            "reference": "سلام آپ کیسے ہیں",
+            "error_type": "substitution"
+          },
+          {
+            "prediction": "میں ہے ہوں ہوں",
+            "reference": "میں اچھا ہوں شکریہ",
+            "error_type": "substitution"
+          },
+          {
+            "prediction": "آج کا میں کیسا رہا",
+            "reference": "آج کا دن کیسا گزرا",
+            "error_type": "substitution"
+          },
+          {
+            "prediction": "آج کا میں بہت ہے رہا",
+            "reference": "آج کا دن بہت اچھا گزرا",
+            "error_type": "substitution"
+          },
+          {
+            "prediction": "آپ کل کیا کا",
+            "reference": "آپ کل کیا کریں گے",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "کل میں میں جا",
+            "reference": "کل میں آفس جاؤں گا",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "یہ جا کتنی ہوں ہے",
+            "reference": "یہ جگہ کتنی سندر ہے",
+            "error_type": "substitution"
+          },
+          {
+            "prediction": "مجھے یہ جا بہت پسند ہے",
+            "reference": "مجھے یہ جگہ بہت پسند ہے",
+            "error_type": "substitution"
+          },
+          {
+            "prediction": "آپ کا آپ یہ",
+            "reference": "آپ کب واپس آئیں گے",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "میں دو میں آپ آپ ہوں",
+            "reference": "میں دو دن بعد واپس آؤں گا",
+            "error_type": "length_mismatch"
+          }
+        ]
+      },
+      "length_analysis": {
+        "avg_pred_length": 5.35,
+        "avg_ref_length": 5.55,
+        "length_difference": 0.2,
+        "length_ratio": 0.9628571428571429,
+        "min_pred_length": 4,
+        "max_pred_length": 8,
+        "min_ref_length": 4,
+        "max_ref_length": 8
+      },
+      "coverage_analysis": {
+        "unique_predicted_words": 30,
+        "unique_reference_words": 64,
+        "word_overlap": 27,
+        "coverage_ratio": 0.421875,
+        "unknown_words": [],
+        "unknown_word_count": 0
+      },
+      "predictions": [
+        "میں آپ کیسے ہیں",
+        "میں ہے ہوں ہوں",
+        "آج کا میں کیسا رہا",
+        "آج کا میں بہت ہے رہا",
+        "آپ کل کیا کا",
+        "کل میں میں جا",
+        "یہ جا کتنی ہوں ہے",
+        "مجھے یہ جا بہت پسند ہے",
+        "آپ کا آپ یہ",
+        "میں دو میں آپ آپ ہوں"
+      ],
+      "references": [
+        "سلام آپ کیسے ہیں",
+        "میں اچھا ہوں شکریہ",
+        "آج کا دن کیسا گزرا",
+        "آج کا دن بہت اچھا گزرا",
+        "آپ کل کیا کریں گے",
+        "کل میں آفس جاؤں گا",
+        "یہ جگہ کتنی سندر ہے",
+        "مجھے یہ جگہ بہت پسند ہے",
+        "آپ کب واپس آئیں گے",
+        "میں دو دن بعد واپس آؤں گا"
+      ],
+      "test_samples": 20
+    },
+    "ml_model_character_based": {
+      "model_type": "ML-based (character_based)",
+      "metrics": {
+        "word_accuracy": 0.0,
+        "sentence_accuracy": 0.0,
+        "character_accuracy": 0.17005545286506468,
+        "bleu_score": 0.0,
+        "rouge_l": 0.0,
+        "meteor_score": 0.0,
+        "avg_edit_distance": 20.6
+      },
+      "error_analysis": {
+        "substitution_errors": 0,
+        "insertion_errors": 0,
+        "deletion_errors": 20,
+        "word_order_errors": 0,
+        "unknown_word_errors": 0,
+        "total_errors": 20,
+        "error_examples": [
+          {
+            "prediction": "      آآآ       ںںںں",
+            "reference": "سلام آپ کیسے ہیں",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "مممم      ہہہ        ",
+            "reference": "میں اچھا ہوں شکریہ",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "آآآ                   ",
+            "reference": "آج کا دن کیسا گزرا",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "آآآ                      ",
+            "reference": "آج کا دن بہت اچھا گزرا",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "آآآ                ",
+            "reference": "آپ کل کیا کریں گے",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "    مممم        م     ",
+            "reference": "کل میں آفس جاؤں گا",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "ییی                    ہہہ",
+            "reference": "یہ جگہ کتنی سندر ہے",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "مججج  ییی                  ہہہ",
+            "reference": "مجھے یہ جگہ بہت پسند ہے",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "آآآ     آپپپ        ",
+            "reference": "آپ کب واپس آئیں گے",
+            "error_type": "length_mismatch"
+          },
+          {
+            "prediction": "مممم             آپپپ       ",
+            "reference": "میں دو دن بعد واپس آؤں گا",
+            "error_type": "length_mismatch"
+          }
+        ]
+      },
+      "length_analysis": {
+        "avg_pred_length": 2.0,
+        "avg_ref_length": 5.55,
+        "length_difference": 3.55,
+        "length_ratio": 0.3722619047619048,
+        "min_pred_length": 1,
+        "max_pred_length": 3,
+        "min_ref_length": 4,
+        "max_ref_length": 8
+      },
+      "coverage_analysis": {
+        "unique_predicted_words": 10,
+        "unique_reference_words": 64,
+        "word_overlap": 0,
+        "coverage_ratio": 0.0,
+        "unknown_words": [],
+        "unknown_word_count": 0
+      },
+      "predictions": [
+        "      آآآ       ںںںں",
+        "مممم      ہہہ        ",
+        "آآآ                   ",
+        "آآآ                      ",
+        "آآآ                ",
+        "    مممم        م     ",
+        "ییی                    ہہہ",
+        "مججج  ییی                  ہہہ",
+        "آآآ     آپپپ        ",
+        "مممم             آپپپ       "
+      ],
+      "references": [
+        "سلام آپ کیسے ہیں",
+        "میں اچھا ہوں شکریہ",
+        "آج کا دن کیسا گزرا",
+        "آج کا دن بہت اچھا گزرا",
+        "آپ کل کیا کریں گے",
+        "کل میں آفس جاؤں گا",
+        "یہ جگہ کتنی سندر ہے",
+        "مجھے یہ جگہ بہت پسند ہے",
+        "آپ کب واپس آئیں گے",
+        "میں دو دن بعد واپس آؤں گا"
+      ],
+      "test_samples": 20
+    }
+  },
+  "model_comparison": {
+    "model_comparison": {
+      "dictionary_model": {
+        "word_accuracy": 0.34234234234234234,
+        "sentence_accuracy": 0.0,
+        "character_accuracy": 0.2729044834307992,
+        "bleu_score": 0.09105414776541167,
+        "rouge_l": 0.36930097680097684,
+        "meteor_score": 0.3783918858918859,
+        "avg_edit_distance": 13.7
+      },
+      "ml_model_word_based": {
+        "word_accuracy": 0.5585585585585585,
+        "sentence_accuracy": 0.0,
+        "character_accuracy": 0.36302895322939865,
+        "bleu_score": 0.17086580427683765,
+        "rouge_l": 0.5660393772893773,
+        "meteor_score": 0.5865367965367965,
+        "avg_edit_distance": 7.8
+      },
+      "ml_model_character_based": {
+        "word_accuracy": 0.0,
+        "sentence_accuracy": 0.0,
+        "character_accuracy": 0.17005545286506468,
+        "bleu_score": 0.0,
+        "rouge_l": 0.0,
+        "meteor_score": 0.0,
+        "avg_edit_distance": 20.6
+      }
+    },
+    "best_models": {
+      "word_accuracy": {
+        "model": "ml_model_word_based",
+        "score": 0.5585585585585585
+      },
+      "sentence_accuracy": {
+        "model": "dictionary_model",
+        "score": 0.0
+      },
+      "bleu_score": {
+        "model": "ml_model_word_based",
+        "score": 0.17086580427683765
+      },
+      "rouge_l": {
+        "model": "ml_model_word_based",
+        "score": 0.5660393772893773
+      }
+    },
+    "metric_summary": "                        Model  Word Accuracy  Sentence Accuracy  BLEU Score   ROUGE-L  Character Accuracy  Edit Distance\n0            Dictionary-based       0.342342                0.0    0.091054  0.369301            0.272904           13.7\n1       ML-based (word_based)       0.558559                0.0    0.170866  0.566039            0.363029            7.8\n2  ML-based (character_based)       0.000000                0.0    0.000000  0.000000            0.170055           20.6"
+  },
+  "recommendations": {
+    "best_overall_model": {
+      "model": "ml_model_word_based",
+      "weighted_score": 0.2746831647064747
+    },
+    "accuracy_leader": {
+      "model": "ml_model_word_based",
+      "word_accuracy": 0.5585585585585585
+    },
+    "speed_vs_accuracy": {},
+    "improvement_suggestions": [
+      "dictionary_model: Word accuracy is low (34.23%). Consider expanding dictionary or improving training data.",
+      "dictionary_model: BLEU score is low (0.091). Consider improving sequence-level modeling.",
+      "dictionary_model: Dictionary coverage is low. Add more word mappings.",
+      "ml_model_word_based: Word accuracy is low (55.86%). Consider expanding dictionary or improving training data.",
+      "ml_model_word_based: BLEU score is low (0.171). Consider improving sequence-level modeling.",
+      "ml_model_character_based: Word accuracy is low (0.00%). Consider expanding dictionary or improving training data.",
+      "ml_model_character_based: BLEU score is low (0.000). Consider improving sequence-level modeling."
+    ]
+  }
+}

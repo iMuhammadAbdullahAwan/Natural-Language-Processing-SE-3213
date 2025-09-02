@@ -1,0 +1,8 @@
+{
+  "model_type": "ml_char",
+  "model_name": "Character-based ML Converter",
+  "description": "Machine learning model using character-level features",
+  "char_mappings": 0,
+  "algorithm": "Random Forest",
+  "feature_type": "Character n-grams"
+}

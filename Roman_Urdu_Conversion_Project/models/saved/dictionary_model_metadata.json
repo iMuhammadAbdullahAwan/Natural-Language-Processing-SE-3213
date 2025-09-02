@@ -1,0 +1,7 @@
+{
+  "model_type": "dictionary",
+  "model_name": "Dictionary-Based Converter",
+  "description": "Rule-based conversion using word mappings",
+  "dictionary_size": 348,
+  "supports_fuzzy_matching": true
+}

@@ -1,0 +1,13 @@
+# Minimal requirements for basic functionality
+fastapi
+uvicorn
+jinja2
+python-multipart
+torch
+transformers
+sentence-transformers
+chromadb
+PyMuPDF
+numpy
+requests
+python-dotenv
