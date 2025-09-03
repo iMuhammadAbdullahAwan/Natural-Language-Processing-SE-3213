@@ -1,0 +1,6 @@
+# System packages for Streamlit Cloud deployment
+# Add any system-level dependencies here
+
+# For text processing and fonts
+fonts-liberation
+fonts-dejavu-core

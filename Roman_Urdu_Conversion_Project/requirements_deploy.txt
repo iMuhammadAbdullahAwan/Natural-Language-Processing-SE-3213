@@ -1,0 +1,49 @@
+# Streamlit Deployment Requirements
+# Updated for compatibility and deployment
+
+# Core Streamlit and Web Framework
+streamlit>=1.28.0
+plotly>=5.15.0
+
+# Data Processing
+pandas>=1.5.0
+numpy>=1.21.0
+
+# Machine Learning
+scikit-learn>=1.2.0
+torch>=1.13.0,<2.1.0
+
+# Natural Language Processing
+nltk>=3.8.0
+transformers>=4.20.0
+
+# Text Processing and Utilities
+fuzzywuzzy>=0.18.0
+python-Levenshtein>=0.20.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# Progress bars
+tqdm>=4.60.0
+
+# Urdu/Arabic text processing
+arabic-reshaper>=2.1.0
+python-bidi>=0.4.2
+
+# File handling
+pathlib2>=2.3.0
+
+# JSON handling (usually built-in, but explicit for deployment)
+jsonschema>=4.0.0
+
+# Math and statistics
+scipy>=1.9.0
+
+# Caching (for Streamlit performance)
+streamlit-lottie>=0.0.3
+
+# Additional utilities for deployment
+requests>=2.28.0
+pillow>=9.0.0
