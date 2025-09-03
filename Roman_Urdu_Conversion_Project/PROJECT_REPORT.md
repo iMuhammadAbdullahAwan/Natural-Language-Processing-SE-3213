@@ -1,8 +1,10 @@
 # Roman Urdu to Urdu Conversion System - Complete Project Report
 
+**Name:** Muhammad Abdullah Awan  
+**Roll Number:** 2022-SE-08
+
 **Course:** Natural Language Processing (SE-3213)  
-**Date:** September 2, 2025  
-**Project Team:** [Your Name/Team]  
+**Date:** September 5, 2025  
 
 ---
 
