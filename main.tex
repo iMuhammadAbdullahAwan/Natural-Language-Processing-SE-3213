@@ -1,0 +1,717 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage{graphicx}
+\usepackage{float}
+
+% --- Preamble: Packages and Settings ---
+% Encoding and language
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% Fonts and typography
+\usepackage{lmodern}    % Latin Modern fonts
+\usepackage{microtype}  % Better spacing and justification
+
+% Math and symbols
+\usepackage{amsmath, amsfonts, amssymb}
+
+% Graphics and colors
+\usepackage{xcolor}
+
+% Graphics defaults for consistent scaling and resilient inclusion
+\graphicspath{{report_images/}{Roman_Urdu_Conversion_Project/report_images/}}
+\setkeys{Gin}{width=\linewidth,keepaspectratio}
+\newcommand{\maybeimg}[2][]{% safe include that degrades gracefully
+    \IfFileExists{#2}{\includegraphics[#1]{#2}}{\fbox{\parbox[c][.6in][c]{\linewidth}{\centering Image not found: \texttt{#2}}}}}
+
+% Links and bookmarks
+\usepackage{hyperref}
+\usepackage{bookmark}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black,
+    pdfauthor={Muhammad Abdullah Awan},
+    pdftitle={Roman Urdu to Urdu Conversion System: Project Report}
+}
+
+% Two-column layout support
+\usepackage{multicol}
+\usepackage{balance}  % Balance columns on last page
+
+% Tables
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\renewcommand{\arraystretch}{1.1} % Reduced for two-column
+\setlength{\tabcolsep}{6pt}       % Reduced for two-column
+
+% Figures and captions
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{font=small, labelfont=bf, skip=5pt}
+% Tighten float spacing for two-column
+\setlength{\textfloatsep}{8pt plus 1pt minus 2pt}
+\setlength{\intextsep}{6pt plus 1pt minus 2pt}
+
+% Lists - Compact for two-column
+\usepackage{enumitem}
+\setlist{noitemsep, topsep=0pt, parsep=0pt, partopsep=0pt}
+\renewcommand\labelitemi{$\bullet$}
+\renewcommand\labelitemii{$\circ$}
+
+% Code listings - Optimized for two-column
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.98,0.98,0.98}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\scriptsize,
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=3pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    frame=single,
+    rulecolor=\color{gray!30},
+    frameround=tttt,
+    xleftmargin=5pt,
+    xrightmargin=5pt,
+    inputencoding=utf8,
+    extendedchars=true
+}
+\lstset{style=mystyle}
+
+% Highlight boxes - Compact for two-column
+\usepackage{tcolorbox}
+\newtcolorbox{highlight}{
+    colback=blue!5!white, 
+    colframe=blue!75!black,
+    boxrule=0.5pt,
+    arc=2pt,
+    left=3pt,
+    right=3pt,
+    top=3pt,
+    bottom=3pt
+}
+
+% Section title formatting - Optimized for two-column
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries\sffamily}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\normalsize\bfseries\sffamily}{\thesubsection}{0.8em}{}
+\titleformat{\subsubsection}{\small\bfseries\sffamily}{\thesubsubsection}{0.8em}{}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\titlespacing*{\subsection}{0pt}{6pt}{3pt}
+\titlespacing*{\subsubsection}{0pt}{4pt}{2pt}
+
+% TOC styling
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecfont}{\bfseries}
+
+% Page layout - Optimized for two-column
+\usepackage[margin=0.8in, columnsep=20pt]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % clear defaults
+\lhead{\footnotesize Roman Urdu to Urdu Conversion}
+\rhead{\footnotesize Project Report}
+\cfoot{\thepage}
+
+% Custom environments - Optimized for two-column
+\newenvironment{keyachievements}{%
+  \begin{itemize}[leftmargin=12pt,itemsep=1pt,topsep=2pt,parsep=0pt,partopsep=0pt]
+}{%
+  \end{itemize}
+}
+
+% Custom command for better two-column tables
+\newcommand{\twocoltable}[3]{%
+  \begin{table*}[#1]
+    \centering
+    \caption{#2}
+    #3
+  \end{table*}
+}
+
+% --- Document Start ---
+\begin{document}
+
+% --- Title Page (Full Width) ---
+	wocolumn[
+\begin{center}
+{\Huge\bfseries Roman Urdu to Urdu Conversion System}\\[0.8em]
+{\Large\bfseries Complete Project Report}\\[1.5em]
+
+{\large\textbf{Muhammad Abdullah Awan}}\\[0.3em]
+{\normalsize Roll Number: 2022-SE-08}\\[0.2em]
+{\normalsize Course: Natural Language Processing (SE-3213)}\\[0.2em]
+{\normalsize Department of Software Engineering}\\[0.2em]
+{\normalsize University of Engineering and Technology, Lahore}\\[0.5em]
+{\normalsize Date: September 5, 2025}\\[2em]
+
+% Abstract
+\begin{minipage}{0.85\textwidth}
+\begin{center}
+\textbf{\large ABSTRACT}
+\end{center}
+\small
+This project presents a comprehensive Roman Urdu to Urdu conversion system that combines dictionary-based lookup, classical machine learning, and a sequence-to-sequence framework. The system targets the growing need for accurate transliteration between Roman-script Urdu (prevalent in digital communication) and standard Urdu script. Across six objective metrics, the ML word-level model achieved the best results with 55.9\% word accuracy and a 0.171 BLEU score. A streamlined Streamlit interface enables real-time conversion, while the evaluation toolkit establishes clear baselines for future work in Roman Urdu processing.
+\end{minipage}
+\\[0.6em]
+{\small\textbf{Keywords—} Roman Urdu, Urdu, Transliteration, NLP, Text Processing, Streamlit}
+\vspace{1.5em}
+\end{center}
+]
+
+% --- 1. Executive Summary ---
+\section{Executive Summary}
+We built a robust Roman Urdu to Urdu conversion system that blends dictionary lookup, ML models, and a seq2seq framework. It addresses the growing need to bridge Roman-script Urdu (common online) and the standard Urdu script.
+
+\subsection*{Key Achievements:}
+\begin{keyachievements}
+\item \textbf{Multiple Model Implementation}: Dictionary-based, ML-based (word and character level), and seq2seq models
+\item \textbf{Comprehensive Evaluation}: 6 different metrics including BLEU, ROUGE-L, and accuracy measures
+\item \textbf{Interactive Web Interface}: Streamlit-based application for real-time conversion
+\item \textbf{Performance Optimization}: Best model achieved 55.9\% word accuracy and 0.171 BLEU score
+\end{keyachievements}
+
+\subsection*{Performance Summary:}
+	wocoltable{t}{Performance Summary of Conversion Models}{%
+\label{tab:performance_summary}
+\begin{tabular}{lcccc}
+	oprule
+	extbf{Model} & \textbf{Word Accuracy} & \textbf{BLEU} & \textbf{ROUGE-L} & \textbf{Char Acc.} \\
+\midrule
+ML-based (Word) & \textbf{55.9\%} & \textbf{0.171} & \textbf{0.566} & 36.3\% \\
+Dictionary-based & 34.2\% & 0.091 & 0.369 & \textbf{27.3\%} \\
+ML-based (Character) & 0.0\% & 0.000 & 0.000 & 17.0\% \\
+\bottomrule
+\end{tabular}%
+}
+
+% --- 2. Introduction ---
+\section{Introduction}
+
+\subsection{Problem Statement}
+Roman Urdu is now the dominant form of typed Urdu due to Latin keyboards. This creates a gap with literature and formal documents that use the Arabic-based Urdu script. We need automated conversion that preserves meaning and grammatical correctness.
+
+\subsection{Objectives}
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Primary Objective}: Develop an accurate Roman Urdu to Urdu conversion system
+    \item \textbf{Secondary Objectives}:
+    \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+        \item Compare different computational approaches (rule-based, ML-based, deep learning)
+        \item Create a user-friendly interface for practical usage
+        \item Establish comprehensive evaluation metrics for transliteration quality
+        \item Build a scalable system architecture for future enhancements
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Scope and Limitations}
+\subsubsection*{Scope:}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Focus on modern Roman Urdu as used in social media and informal communication
+    \item Support for common vocabulary and everyday expressions
+    \item Multiple model architectures for comparison
+    \item Real-time conversion capabilities
+\end{itemize}
+
+\subsubsection*{Limitations:}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Limited training data (50 samples for proof of concept)
+    \item No support for mixed language text (Urdu-English code-switching)
+    \item Context-dependent disambiguation not fully addressed
+    \item Dialectical variations not extensively covered
+\end{itemize}
+
+% --- 3. Literature Review ---
+\section{Literature Review}
+
+\subsection{Background on Transliteration}
+Transliteration between different scripts has been an active area of research in computational linguistics. Previous work has explored various approaches:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Rule-based Systems}: Early systems relied on handcrafted rules and character mappings
+    \item \textbf{Statistical Methods}: N-gram models and statistical machine translation techniques
+    \item \textbf{Neural Approaches}: Recent advances using RNNs, LSTMs, and Transformer architectures
+\end{enumerate}
+
+\subsection{Roman Urdu Characteristics}
+Roman Urdu presents unique challenges:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item \textbf{Phonetic Variations}: Multiple Roman representations for the same Urdu sound
+    \item \textbf{Ambiguity}: Same Roman text can map to different Urdu words
+    \item \textbf{Inconsistent Spelling}: Lack of standardization in Roman Urdu writing
+    \item \textbf{Context Dependency}: Meaning often depends on surrounding words
+\end{itemize}
+
+\subsection{Related Work}
+Previous research in Urdu NLP has addressed:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Urdu OCR and text recognition
+    \item Urdu-English machine translation
+    \item Urdu morphological analysis
+    \item Roman to Urdu conversion (limited scope)
+\end{itemize}
+
+% --- 4. Methodology ---
+\section{Methodology}
+
+\subsection{Research Approach}
+We adopted a \textbf{comparative methodology} implementing multiple approaches to identify the most effective solution:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Dictionary-Based Approach}: Rule-based lookup with fuzzy matching
+    \item \textbf{Machine Learning Approach}: Character and word-level statistical models
+    \item \textbf{Deep Learning Approach}: Sequence-to-sequence models (planned)
+\end{enumerate}
+
+\subsection{Evaluation Framework}
+Our evaluation strategy encompasses multiple metrics:
+
+\subsubsection*{Automatic Metrics:}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item \textbf{Word Accuracy}: Percentage of correctly converted words
+    \item \textbf{Sentence Accuracy}: Percentage of perfectly converted sentences
+    \item \textbf{Character Accuracy}: Character-level correctness
+    \item \textbf{BLEU Score}: N-gram based similarity measure
+    \item \textbf{ROUGE-L}: Longest common subsequence F1-score
+    \item \textbf{METEOR Score}: Alignment-based metric
+    \item \textbf{Edit Distance}: Levenshtein distance between prediction and reference
+\end{itemize}
+
+\subsubsection*{Error Analysis:}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item \textbf{Substitution Errors}: Incorrect character/word replacements
+    \item \textbf{Insertion/Deletion Errors}: Extra or missing elements
+    \item \textbf{Coverage Analysis}: Dictionary coverage and unknown word handling
+\end{itemize}
+
+% --- 5. System Architecture ---
+\section{System Architecture}
+
+% Optional: Overall system architecture (place file in report_images/ to enable)
+% \begin{figure*}[t]
+%     \centering
+%     \includegraphics{system_architecture_diagram.png}
+%     \caption{Overall System Architecture for Roman Urdu to Urdu Conversion}
+%     \label{fig:overall_architecture}
+% \end{figure*}
+
+\subsection{Component Overview}
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Preprocessing Module} (\texttt{utils/preprocessing.py})
+    \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+        \item Text normalization and cleaning
+        \item Spelling variation handling
+        \item Tokenization
+    \end{itemize}
+
+    \item \textbf{Model Modules}
+    \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+        \item \textbf{Dictionary Model} (\texttt{models/dictionary_model.py})
+        \item \textbf{ML Model} (\texttt{models/ml_model.py})
+        \item \textbf{Seq2Seq Model} (\texttt{models/seq2seq_model.py})
+    \end{itemize}
+
+    \item \textbf{Utilities}
+    \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+        \item \textbf{Data Loader} (\texttt{utils/data_loader.py})
+        \item \textbf{Urdu Text Processor} (\texttt{utils/urdu_utils.py})
+    \end{itemize}
+
+    \item \textbf{Evaluation Framework} (\texttt{evaluation/})
+    \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+        \item Metrics calculation
+        \item Visualization
+        \item Performance analysis
+    \end{itemize}
+
+    \item \textbf{User Interface}
+    \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+        \item \textbf{Streamlit Web App} (\texttt{streamlit_app.py})
+        \item \textbf{CLI Interface} (\texttt{main.py})
+    \end{itemize}
+\end{enumerate}
+
+% --- 6. Implementation Details ---
+\section{Implementation Details}
+
+\subsection{Technology Stack}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item \textbf{Programming Language}: Python 3.13
+    \item \textbf{Machine Learning}: scikit-learn, NumPy, pandas
+    \item \textbf{Visualization}: matplotlib, seaborn
+    \item \textbf{Text Processing}: arabic-reshaper, python-bidi
+    \item \textbf{Web Interface}: Streamlit
+    \item \textbf{Data Storage}: JSON, CSV
+\end{itemize}
+
+% --- 7. Data Collection and Processing ---
+\section{Data Collection and Processing}
+
+\subsection{Dataset Description}
+Our dataset consists of:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item \textbf{Training Data}: 50 Roman Urdu to Urdu sentence pairs
+    \item \textbf{Test Data}: Separate test set for evaluation
+    \item \textbf{Dictionary}: Comprehensive word-level mappings
+\end{itemize}
+
+\subsection{Data Sources}
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Manual Creation}: Carefully crafted examples covering common usage patterns
+    \item \textbf{Social Media}: Informal Roman Urdu expressions
+    \item \textbf{Literature}: Formal Urdu references for accuracy
+\end{enumerate}
+
+\subsection{Data Preprocessing Pipeline}
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Text Normalization}
+    \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+        \item Convert to lowercase
+        \item Remove extra whitespace
+        \item Handle punctuation
+    \end{itemize}
+
+    \item \textbf{Spelling Standardization}
+    \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+        \item Map common variations (k$\rightarrow$c, s$\rightarrow$z, etc.)
+        \item Normalize word forms
+    \end{itemize}
+
+    \item \textbf{Tokenization}
+    \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+        \item Word-level splitting
+        \item Character-level segmentation for character models
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Data Augmentation}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item \textbf{Spelling Variations}: Generate alternative spellings
+    \item \textbf{Noise Addition}: Character-level perturbations
+    \item \textbf{Synonym Replacement}: Context-aware word substitutions
+\end{itemize}
+
+% --- 8. Model Development ---
+\section{Model Development}
+
+\subsection{1. Dictionary-Based Model}
+\subsubsection*{Approach}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item \textbf{Core Strategy}: Direct lookup in Roman-to-Urdu dictionary
+    \item \textbf{Enhancement}: Fuzzy matching for unknown words
+    \item \textbf{Fallback}: Character similarity scoring
+\end{itemize}
+
+\subsubsection*{Advantages}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Fast lookup time
+    \item Predictable behavior
+    \item Easy to debug and maintain
+    \item Good for common words
+\end{itemize}
+
+\subsubsection*{Limitations}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Limited coverage for new/slang words
+    \item No context awareness
+    \item Requires manual dictionary maintenance
+\end{itemize}
+
+\subsection{2. Machine Learning Models}
+\subsubsection*{Word-Based ML Model}
+\textbf{Architecture:}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item \textbf{Feature Extraction}: TF-IDF on character n-grams (1-3)
+    \item \textbf{Classifier}: Logistic Regression with multi-class output
+    \item \textbf{Training}: 80-20 train-test split
+\end{itemize}
+
+\subsubsection*{Character-Based ML Model}
+\textbf{Architecture:}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item \textbf{Context Windows}: 3-character context around target
+    \item \textbf{Features}: One-hot encoded character vectors
+    \item \textbf{Classifier}: Random Forest with 100 estimators
+\end{itemize}
+
+\subsection{3. Sequence-to-Sequence Model (Framework)}
+\textbf{Planned Architecture:}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item \textbf{Encoder}: LSTM/GRU for Roman sequence processing
+    \item \textbf{Decoder}: LSTM/GRU for Urdu sequence generation
+    \item \textbf{Attention}: Attention mechanism for alignment
+\end{itemize}
+
+% --- 9. Evaluation and Results ---
+\section{Evaluation and Results}
+
+\subsection{Performance Metrics}
+We generated comprehensive visualizations (expected in the \texttt{report_images/} folder). If an image is missing, the figure will be skipped during compilation:
+
+\subsubsection{1. Overall Model Performance}
+This chart shows the comparative performance across all main metrics. The ML-based word model consistently outperforms other approaches.
+% To include an image, upload 'metrics_overview_bar.png' to Overleaf's file system, inside the 'report_images/' folder.
+\begin{figure}[t]
+    \centering
+    \maybeimg{metrics_overview_bar.png}
+    \caption{Overall model performance across key metrics.}
+    \label{fig:metrics_overview}
+\end{figure}
+
+\subsubsection{2. Edit Distance Analysis}
+Lower edit distance indicates better conversion quality. The word-based ML model shows the lowest average edit distance.
+% To include an image, upload 'avg_edit_distance_bar.png' to Overleaf's file system, inside the 'report_images/' folder.
+\begin{figure}[t]
+    \centering
+    \maybeimg{avg_edit_distance_bar.png}
+    \caption{Average edit distance by model. Lower is better.}
+    \label{fig:edit_distance}
+\end{figure}
+
+\subsubsection{3. Error Type Distribution}
+Analysis of different error types helps identify model weaknesses and improvement opportunities.
+% To include an image, upload 'error_types_by_model.png' to Overleaf's file system, inside the 'report_images/' folder.
+\begin{figure}[t]
+    \centering
+    \maybeimg{error_types_by_model.png}
+    \caption{Distribution of error types by model.}
+    \label{fig:error_types}
+\end{figure}
+
+\subsubsection{4. Length Analysis}
+These charts analyze the relationship between predicted and reference text lengths.
+% To include images, upload 'avg_lengths_by_model.png' and 'length_ratio_by_model.png' to the 'report_images/' folder.
+\begin{figure}[t]
+    \centering
+    \begin{subfigure}[b]{0.48\linewidth}
+        \maybeimg{avg_lengths_by_model.png}
+        \caption{Average lengths by model}
+        \label{fig:avg_lengths}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \maybeimg{length_ratio_by_model.png}
+        \caption{Length ratio by model}
+        \label{fig:length_ratio}
+    \end{subfigure}
+    \caption{Analysis of text lengths and ratios.}
+    \label{fig:length_analysis}
+\end{figure}
+
+\subsubsection{5. Comprehensive Metrics Table}
+% To include an image, upload 'metric_summary_table.png' to Overleaf's file system, inside the 'report_images/' folder.
+\begin{figure}[t]
+    \centering
+    \maybeimg{metric_summary_table.png}
+    \caption{Comprehensive summary of evaluation metrics.}
+    \label{fig:metric_summary_table}
+\end{figure}
+
+\subsection{Detailed Results Analysis}
+
+\subsubsection*{Best Performing Model: ML-Based (Word-Level)}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item \textbf{Word Accuracy}: 55.9\% (best overall)
+    \item \textbf{BLEU Score}: 0.171 (highest semantic similarity)
+    \item \textbf{ROUGE-L}: 0.566 (best sequence alignment)
+    \item \textbf{Average Edit Distance}: 7.8 (lowest error rate)
+\end{itemize}
+
+\subsubsection*{Model Comparison Summary}
+	wocoltable{t}{Detailed Model Comparison Summary}{%
+\label{tab:model_comparison}
+\begin{tabular}{lccc}
+	oprule
+	extbf{Metric} & \textbf{Dictionary Model} & \textbf{ML Word Model} & \textbf{ML Char Model} \\
+\midrule
+	extbf{Word Accuracy} & 34.2\% & \textbf{55.9\%} & 0.0\% \\
+	extbf{Sentence Accuracy} & 0.0\% & 0.0\% & 0.0\% \\
+	extbf{BLEU} & 0.091 & \textbf{0.171} & 0.000 \\
+	extbf{ROUGE-L} & 0.369 & \textbf{0.566} & 0.000 \\
+	extbf{Character Accuracy} & 27.3\% & \textbf{36.3\%} & 17.0\% \\
+	extbf{Avg. Edit Distance} & 13.7 & \textbf{7.8} & 20.6 \\
+\bottomrule
+\end{tabular}%
+}
+
+\subsection{Key Findings}
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Word-Level Superiority}: Word-based ML model significantly outperforms character-based approach
+    \item \textbf{Dictionary Limitations}: Rule-based approach shows consistent but limited performance
+    \item \textbf{Character Model Challenges}: Character-level modeling requires more sophisticated architectures
+    \item \textbf{Sentence-Level Difficulty}: All models struggle with complete sentence accuracy
+    \item \textbf{BLEU vs Accuracy}: BLEU scores correlate well with word accuracy metrics
+\end{enumerate}
+
+\subsection{Error Analysis}
+
+\subsubsection*{Common Error Patterns}
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Unknown Words}: High frequency of out-of-vocabulary terms
+    \item \textbf{Ambiguous Mappings}: Multiple valid Urdu translations for Roman words
+    \item \textbf{Context Sensitivity}: Words requiring contextual disambiguation
+    \item \textbf{Morphological Variations}: Handling of word forms and inflections
+\end{enumerate}
+
+\subsubsection*{Improvement Opportunities}
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Expanded Training Data}: Larger, more diverse dataset
+    \item \textbf{Context Modeling}: Sentence-level context incorporation
+    \item \textbf{Ensemble Methods}: Combining multiple model predictions
+    \item \textbf{Post-processing}: Rule-based correction of common errors
+\end{enumerate}
+
+% --- 10. User Interface ---
+\section{User Interface}
+
+\subsection{Streamlit Web Application}
+Our system features a user-friendly web interface built with Streamlit:
+
+\subsubsection*{Features:}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item \textbf{Real-time Conversion}: Instant Roman to Urdu translation
+    \item \textbf{Model Selection}: Choose between different conversion models
+    \item \textbf{Batch Processing}: Upload files for bulk conversion
+    \item \textbf{Performance Metrics}: Live accuracy tracking
+    \item \textbf{Download Options}: Export results in multiple formats
+\end{itemize}
+
+\subsubsection*{Usage Screenshots:}
+% You would typically upload these images to Overleaf, specifically into the 'report_images/' folder.
+\begin{figure}[t]
+    \centering
+    \begin{subfigure}[b]{0.48\linewidth}
+        \maybeimg{streamlit_input_interface.png}
+        \caption{Input interface}
+        \label{fig:streamlit_input}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \maybeimg{streamlit_model_selection.png}
+        \caption{Model selection}
+        \label{fig:streamlit_model_selection}
+    \end{subfigure}
+    \caption{Screenshots of the Streamlit web application.}
+    \label{fig:streamlit_screenshots}
+\end{figure}
+% Add more subfigures for other screenshots if available, following the same path.
+
+% --- 11. Challenges and Solutions ---
+\section{Challenges and Solutions}
+
+\subsection{Technical Challenges}
+
+\subsubsection*{1. Data Scarcity}
+\textbf{Challenge}: Limited availability of high-quality Roman Urdu to Urdu parallel data\\
+\textbf{Solution}:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Manual creation of curated dataset
+    \item Data augmentation through spelling variations
+    \item Community sourcing for future expansion
+\end{itemize}
+
+\subsubsection*{2. Spelling Inconsistency}
+\textbf{Challenge}: Roman Urdu lacks standardized spelling conventions\\
+\textbf{Solution}:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Comprehensive normalization rules
+    \item Fuzzy matching algorithms
+    \item Multiple spelling variation handling
+\end{itemize}
+
+\subsubsection*{3. Context Ambiguity}
+\textbf{Challenge}: Same Roman text can have multiple valid Urdu translations\\
+\textbf{Solution}:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Context window features in ML models
+    \item Future: Sentence-level context modeling
+    \item Post-processing disambiguation rules
+\end{itemize}
+
+\subsubsection*{4. Character Encoding}
+\textbf{Challenge}: Proper handling of Urdu Unicode and display\\
+\textbf{Solution}:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Arabic-reshaper for proper character joining
+    \item BiDi algorithm for right-to-left display
+    \item UTF-8 encoding throughout the pipeline
+\end{itemize}
+
+\subsection{Implementation Challenges}
+
+\subsubsection*{1. Model Performance}
+\textbf{Challenge}: Achieving high accuracy with limited training data\\
+\textbf{Solution}:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Multiple model architectures
+    \item Ensemble approaches
+    \item Feature engineering optimization
+\end{itemize}
+
+\subsubsection*{2. Evaluation Complexity}
+\textbf{Challenge}: Establishing comprehensive evaluation metrics\\
+\textbf{Solution}:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Multiple automatic metrics (BLEU, ROUGE, accuracy)
+    \item Error type analysis
+    \item Visual performance dashboards
+\end{itemize}
+
+\subsubsection*{3. User Experience}
+\textbf{Challenge}: Creating intuitive interface for non-technical users\\
+\textbf{Solution}:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Streamlit web interface
+    \item Real-time conversion feedback
+    \item Clear error messages and suggestions
+\end{itemize}
+
+% --- 12. Conclusion and Future Work ---
+\section{Conclusion and Future Work}
+
+\subsection{Project Summary}
+This project successfully developed a multi-modal Roman Urdu to Urdu conversion system with the following achievements:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Comprehensive Implementation}: Three different model architectures with full evaluation framework
+    \item \textbf{Performance Benchmarking}: Established baseline metrics for future improvements
+    \item \textbf{User-Friendly Interface}: Production-ready web application
+    \item \textbf{Extensible Architecture}: Modular design for easy enhancement
+    \item \textbf{Research Documentation}: Complete methodology and results analysis
+\end{enumerate}
+
+\subsection{Key Contributions}
+\subsubsection*{1. Technical Contributions:}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Comparative analysis of different conversion approaches
+    \item Comprehensive evaluation framework with multiple metrics
+    \item Modular, extensible system architecture
+\end{itemize}
+
+\subsubsection*{2. Practical Contributions:}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Working web application for Roman Urdu conversion
+    \item Performance visualizations for model analysis
+    \item Complete project documentation
+\end{itemize}
+
+\subsubsection*{3. Research Contributions:}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Baseline performance metrics for Roman Urdu conversion
+    \item Error analysis and improvement recommendations
+    \item Open framework for future research
+\end{itemize}
+\balance
+\end{document}
